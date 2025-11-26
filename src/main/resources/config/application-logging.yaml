@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: logging
+
+
+logging:
+  level:
+    ROOT: info
+    com.example: debug
+    org:
+      springframework:
+        ws:
+          client:
+            MessageTracing:
+              sent: trace
+              received: trace

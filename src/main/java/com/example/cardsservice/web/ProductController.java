@@ -27,7 +27,7 @@ public interface ProductController {
 
     @PutMapping("/{productId}")
     @PreAuthorize("PRODUCT_UPDATE")
-    ResponseEntity<ProductAddDto> update(@PathVariable UUID productId, ProductUpdateDto request);
+    ResponseEntity<ProductDto> update(@PathVariable UUID productId, ProductUpdateDto request);
 
     @DeleteMapping
     @PreAuthorize("PRODUCT_DELETE")

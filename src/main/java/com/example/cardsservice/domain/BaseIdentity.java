@@ -1,5 +1,6 @@
 package com.example.cardsservice.domain;
 
+import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

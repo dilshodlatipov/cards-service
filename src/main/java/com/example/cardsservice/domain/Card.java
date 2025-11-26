@@ -1,33 +1,54 @@
 package com.example.cardsservice.domain;
 
+import com.example.cardsservice.common.FieldEncryptionConverter;
 import com.example.cardsservice.domain.enums.CardStatusEnum;
 import com.example.cardsservice.domain.enums.PinStatus;
 import com.example.cardsservice.domain.value.CardControls;
-import com.example.cardsservice.domain.value.CardRuntimeLimits;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import com.example.cardsservice.domain.value.CardLimits;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static org.hibernate.type.SqlTypes.JSON;
+
 @Setter
 @Getter
 @Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Card extends BaseIdentity {
+    @ManyToOne(optional = false)
     private Product product;
-    private String PAN;
+
+    @Convert(converter = FieldEncryptionConverter.class)
+    private String pan;
+
     private String maskedPan;
+
+    @Convert(converter = FieldEncryptionConverter.class)
+    private Short pin;
+
+    @Convert(converter = FieldEncryptionConverter.class)
+    private Short cvv;
+
+    @Convert(converter = FieldEncryptionConverter.class)
     private LocalDate expireDate;
+
     @Enumerated(EnumType.STRING)
     private CardStatusEnum status;
+
     private LocalDateTime issuedAt;
+
+    @JdbcTypeCode(JSON)
     private CardControls cardControls;
-    private CardRuntimeLimits cardLimits;
+
+    @JdbcTypeCode(JSON)
+    private CardLimits cardLimits;
+
     @Enumerated(EnumType.STRING)
     private PinStatus pinStatus;
 }

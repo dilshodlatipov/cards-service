@@ -12,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardControls {
-    private List<CountryCodes> geoRestrictions;
     private Boolean onlinePaymentEnabled;
     private Boolean contactlessEnabled;
     private Boolean atmEnabled;

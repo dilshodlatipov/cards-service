@@ -1,3 +1,9 @@
 spring:
   application:
     name: cards-service
+  profiles:
+    include:
+      - springdoc
+      - logging
+      - dev
+      - security

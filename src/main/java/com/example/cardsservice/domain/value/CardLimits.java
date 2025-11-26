@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CardRuntimeLimits {
+public class CardLimits {
     private Double dailyAtmLimit;
     private Double dailyPosLimit;
     private Double onlineLimit;

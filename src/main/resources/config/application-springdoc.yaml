@@ -1,0 +1,29 @@
+spring:
+  config:
+    activate:
+      on-profile: springdoc
+
+
+springdoc:
+  swagger-ui:
+    groups-order: ASC
+    operationsSorter: alpha
+    path: /swagger-ui.html
+    supportedSubmitMethods:
+      - get
+      - post
+      - put
+      - delete
+      - patch
+      - options
+      - head
+      - trace
+    tagsSorter: alpha
+
+app:
+  baseURL:
+  openapi:
+    version: 1.0
+    title: "Cards Service"
+    description: |
+      Cards Service - Internal API

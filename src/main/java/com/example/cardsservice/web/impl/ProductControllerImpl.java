@@ -26,7 +26,7 @@ public class ProductControllerImpl implements ProductController {
     }
 
     @Override
-    public ResponseEntity<ProductAddDto> update(UUID productId, ProductUpdateDto request) {
+    public ResponseEntity<ProductDto> update(UUID productId, ProductUpdateDto request) {
         return null;
     }
 
