@@ -3,6 +3,11 @@ spring:
     activate:
       on-profile: security
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:9090/realms/myrealm
 
 crypto:
   rsa:

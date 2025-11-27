@@ -2,6 +2,7 @@ package com.example.cardsservice.common;
 
 import com.example.cardsservice.domain.value.CardControls;
 import com.example.cardsservice.domain.value.CardLimits;
+import org.springframework.http.HttpMethod;
 
 public interface Constants {
     String BASE_URL = "/api/v1";
@@ -18,4 +19,8 @@ public interface Constants {
             .contactlessEnabled(true)
             .onlinePaymentEnabled(true)
             .build();
+
+    String[] OPEN_PAGES = {
+            "/swagger-ui.html"
+    };
 }
