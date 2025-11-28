@@ -26,7 +26,8 @@ public interface CardController {
     ResponseEntity<List<CardDto>> get(@AuthenticationPrincipal CurrentUser currentUser);
 
     @GetMapping("/{cardId}")
-    ResponseEntity<List<CardDto>> get(@PathVariable UUID cardId);
+    ResponseEntity<CardDto> get(@AuthenticationPrincipal CurrentUser currentUser,
+                                @PathVariable UUID cardId);
 
     @PostMapping(CARD_ISSUE)
     ResponseEntity<CardDto> issue(@AuthenticationPrincipal CurrentUser currentUser,

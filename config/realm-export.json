@@ -1,0 +1,42 @@
+{
+  "realm": "myrealm",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "spring-app",
+      "secret": "spring-secret-value",
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "redirectUris": ["http://localhost:*"],
+      "defaultRoles": ["user"]
+    }
+  ],
+  "users": [
+    {
+      "username": "devuser",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "dev@test.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Standard user role"
+      },
+      {
+        "name": "admin",
+        "description": "Admin access"
+      }
+    ]
+  }
+}

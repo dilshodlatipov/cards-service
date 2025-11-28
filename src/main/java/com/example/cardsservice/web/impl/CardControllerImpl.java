@@ -20,12 +20,12 @@ public class CardControllerImpl implements CardController {
     private final CardService cardService;
     @Override
     public ResponseEntity<List<CardDto>> get(CurrentUser currentUser) {
-        return null;
+        return ResponseEntity.ok(cardService.get(currentUser));
     }
 
     @Override
-    public ResponseEntity<List<CardDto>> get(UUID cardId) {
-        return null;
+    public ResponseEntity<CardDto> get(CurrentUser currentUser, UUID cardId) {
+        return ResponseEntity.ok(cardService.get(currentUser, cardId));
     }
 
     @Override

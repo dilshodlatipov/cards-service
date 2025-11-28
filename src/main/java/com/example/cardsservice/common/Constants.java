@@ -23,4 +23,16 @@ public interface Constants {
     String[] OPEN_PAGES = {
             "/swagger-ui.html"
     };
+    String DEFAULT_PAGE = "0";
+    String DEFAULT_SIZE = "10";
+
+    String VISA_CREDIT = "400000";
+    String VISA_DEBIT = "411111";
+    String MASTER_CREDIT = "510000";
+    String MASTER_DEBIT = "520000";
+    String UZCARD_DEBIT = "860000";
+    String UZCARD_CREDIT = "860010";
+    String HUMO_DEBIT = "986000";
+    String HUMO_CREDIT = "986010";
+
 }

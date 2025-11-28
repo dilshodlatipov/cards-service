@@ -9,6 +9,16 @@
       "MaintenanceDB": "cards_db",
       "SSLMode": "prefer",
       "PassFile": "/pgpass"
+    },
+    "2": {
+      "Name": "Keycloak PostgreSQL",
+      "Group": "Servers",
+      "Host": "keycloak_postgres",
+      "Port": 5432,
+      "Username": "keycloak",
+      "MaintenanceDB": "keycloak",
+      "SSLMode": "prefer",
+      "PassFile": "/pgpass"
     }
   }
 }
