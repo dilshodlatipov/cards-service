@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-@Converter(autoApply = false)
+@Converter
 public class FieldEncryptionConverter implements AttributeConverter<String, String> {
 
     private final RsaCryptoUtil crypto;

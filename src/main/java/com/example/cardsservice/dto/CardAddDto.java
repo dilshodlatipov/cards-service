@@ -1,6 +1,6 @@
 package com.example.cardsservice.dto;
 
-import com.example.cardsservice.domain.enums.CardCategory;
+import com.example.cardsservice.domain.enums.ProductType;
 import com.example.cardsservice.domain.enums.CardNetwork;
 import com.example.cardsservice.domain.enums.Currency;
 import jakarta.validation.constraints.NotNull;
@@ -15,10 +15,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardAddDto {
-    @NotNull(message = "Card network cannot be null")
-    private CardNetwork network;
-    @NotNull(message = "Card category cannot be null")
-    private CardCategory category;
+    @NotNull(message = "Product type cannot be null")
+    private ProductType productType;
     @NotNull(message = "Card currency cannot be null")
     private Currency currency;
 }

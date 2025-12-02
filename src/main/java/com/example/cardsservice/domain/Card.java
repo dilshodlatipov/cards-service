@@ -30,13 +30,13 @@ public class Card extends BaseIdentity {
     private String maskedPan;
 
     @Convert(converter = FieldEncryptionConverter.class)
-    private Short pin;
+    private String pin;
 
     @Convert(converter = FieldEncryptionConverter.class)
-    private Short cvv;
+    private String cvv;
 
     @Convert(converter = FieldEncryptionConverter.class)
-    private LocalDate expireDate;
+    private String expireDate;
 
     @Enumerated(EnumType.STRING)
     private CardStatusEnum status;
@@ -51,4 +51,6 @@ public class Card extends BaseIdentity {
 
     @Enumerated(EnumType.STRING)
     private PinStatus pinStatus;
+
+    private Boolean current;
 }

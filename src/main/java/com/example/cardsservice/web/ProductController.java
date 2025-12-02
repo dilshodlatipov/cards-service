@@ -1,8 +1,7 @@
 package com.example.cardsservice.web;
 
 import com.example.cardsservice.common.Constants;
-import com.example.cardsservice.domain.enums.CardCategory;
-import com.example.cardsservice.domain.enums.CardNetwork;
+import com.example.cardsservice.domain.enums.ProductType;
 import com.example.cardsservice.domain.enums.Currency;
 import com.example.cardsservice.dto.PaginationDto;
 import com.example.cardsservice.dto.ProductDto;
@@ -21,8 +20,7 @@ public interface ProductController {
     String BLOCK = "/block";
 
     @GetMapping(PRODUCT_LIST)
-    ResponseEntity<PaginationDto<List<ProductDto>>> get(@RequestParam(name = "category", required = false) CardCategory category,
-                                                        @RequestParam(name = "network", required = false) CardNetwork network,
+    ResponseEntity<PaginationDto<List<ProductDto>>> get(@RequestParam(name = "productType", required = false) ProductType productType,
                                                         @RequestParam(name = "currency", required = false) Currency currency,
                                                         @RequestParam(name = "page", defaultValue = Constants.DEFAULT_PAGE) Integer page,
                                                         @RequestParam(name = "size", defaultValue = Constants.DEFAULT_SIZE) Integer size);

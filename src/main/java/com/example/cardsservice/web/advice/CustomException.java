@@ -1,7 +1,6 @@
-package com.example.cardsservice.web.error;
+package com.example.cardsservice.web.advice;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import org.springframework.http.HttpStatus;
 
 /**

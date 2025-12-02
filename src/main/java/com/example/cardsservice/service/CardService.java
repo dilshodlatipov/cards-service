@@ -2,7 +2,6 @@ package com.example.cardsservice.service;
 
 import com.example.cardsservice.dto.*;
 import com.example.cardsservice.security.CurrentUser;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.UUID;

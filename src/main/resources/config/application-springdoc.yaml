@@ -20,6 +20,7 @@ springdoc:
       - trace
     tagsSorter: alpha
 
+
 app:
   baseURL:
   openapi:

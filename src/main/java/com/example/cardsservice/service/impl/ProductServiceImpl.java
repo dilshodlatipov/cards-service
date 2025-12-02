@@ -1,8 +1,7 @@
 package com.example.cardsservice.service.impl;
 
 import com.example.cardsservice.domain.Product;
-import com.example.cardsservice.domain.enums.CardCategory;
-import com.example.cardsservice.domain.enums.CardNetwork;
+import com.example.cardsservice.domain.enums.ProductType;
 import com.example.cardsservice.domain.enums.Currency;
 import com.example.cardsservice.domain.enums.ProductStatusEnum;
 import com.example.cardsservice.domain.value.Account;
@@ -13,7 +12,7 @@ import com.example.cardsservice.repository.ProductRepository;
 import com.example.cardsservice.security.CurrentUser;
 import com.example.cardsservice.service.CardService;
 import com.example.cardsservice.service.ProductService;
-import com.example.cardsservice.web.error.CustomException;
+import com.example.cardsservice.web.advice.CustomException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
     private final CardService cardService;
 
     @Override
-    public PaginationDto<List<ProductDto>> get(CardCategory category, CardNetwork network, Currency currency, Integer page, Integer size) {
+    public PaginationDto<List<ProductDto>> get(ProductType productType, Currency currency, Integer page, Integer size) {
         return null;
     }
 
@@ -64,22 +63,24 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public Product lookUpProduct(CurrentUser currentUser, CardAddDto request) {
-        Product product = productRepository.findByUserIdAndCategoryAndNetworkAndCurrency(currentUser.getId(), request.getCategory(), request.getNetwork(), request.getCurrency())
-                .orElseGet(() -> {
-                    return Product.builder()
-                            .userId(currentUser.getId())
-                            .account(Account.builder()
-                                    .currency(request.getCurrency())
-                                    .volume(0.00)
-                                    .build())
-                            .category(request.getCategory())
-                            .network(request.getNetwork())
-                            .currency(request.getCurrency())
-                            .status(ProductStatusEnum.CREATED)
-                            .build();
-                });
+        Product product = productRepository.findByUserIdAndProductTypeAndCurrency(currentUser.getId(), request.getProductType(), request.getCurrency())
+                .orElse(null);
 
-        return productRepository.save(product);
+        if (Objects.isNull(product)) {
+            product = Product.builder()
+                    .userId(currentUser.getId())
+                    .account(Account.builder()
+                            .currency(request.getCurrency())
+                            .volume(0.00)
+                            .build())
+                    .productType(request.getProductType())
+                    .currency(request.getCurrency())
+                    .status(ProductStatusEnum.CREATED)
+                    .build();
+            productRepository.save(product);
+        }
+
+        return product;
     }
 
     @Override

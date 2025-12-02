@@ -1,18 +1,13 @@
 package com.example.cardsservice.web.impl;
 
-import com.example.cardsservice.domain.enums.CardCategory;
-import com.example.cardsservice.domain.enums.CardNetwork;
+import com.example.cardsservice.domain.enums.ProductType;
 import com.example.cardsservice.domain.enums.Currency;
 import com.example.cardsservice.dto.PaginationDto;
-import com.example.cardsservice.dto.ProductAddDto;
 import com.example.cardsservice.dto.ProductDto;
-import com.example.cardsservice.dto.ProductUpdateDto;
 import com.example.cardsservice.service.ProductService;
 import com.example.cardsservice.web.ProductController;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,10 +17,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductControllerImpl implements ProductController {
     private final ProductService productService;
+
     @Override
-    public ResponseEntity<PaginationDto<List<ProductDto>>> get(CardCategory category, CardNetwork network, Currency currency, Integer page, Integer size) {
+    public ResponseEntity<PaginationDto<List<ProductDto>>> get(ProductType productType, Currency currency, Integer page, Integer size) {
         return ResponseEntity.ok(
-                productService.get(category, network, currency, page, size)
+                productService.get(productType, currency, page, size)
         );
     }
 

@@ -1,8 +1,7 @@
 package com.example.cardsservice.service;
 
 import com.example.cardsservice.domain.Product;
-import com.example.cardsservice.domain.enums.CardCategory;
-import com.example.cardsservice.domain.enums.CardNetwork;
+import com.example.cardsservice.domain.enums.ProductType;
 import com.example.cardsservice.domain.enums.Currency;
 import com.example.cardsservice.dto.CardAddDto;
 import com.example.cardsservice.dto.PaginationDto;
@@ -17,7 +16,7 @@ import java.util.UUID;
  */
 public interface ProductService {
 
-    PaginationDto<List<ProductDto>> get(CardCategory category, CardNetwork network, Currency currency, Integer page, Integer size);
+    PaginationDto<List<ProductDto>> get(ProductType productType, Currency currency, Integer page, Integer size);
 
     ProductDto get(UUID productId);
 

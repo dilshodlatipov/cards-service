@@ -2,10 +2,7 @@ package com.example.cardsservice.domain;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.*;
 
@@ -32,4 +29,6 @@ public abstract class BaseIdentity {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+    @Builder.Default
+    private boolean deleted = false;
 }
